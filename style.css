@@ -113,3 +113,15 @@ button {
 #learnMore {
   margin-bottom: 1.5em;
 }
+footer {
+  background-color: #3b3e41;
+  margin: 0;
+}
+footer p, footer p a {
+  color: #fff;
+  font-size: 12px;
+}
+footer p a {
+  text-decoration: none;
+  cursor: pointer;
+}

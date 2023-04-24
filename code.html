@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code</title>
+  </head>
+  <body>
+    <pre>
+      <code>
+        &lt;!DOCTYPE html&gt;
+          &lt;html&gt;
+            &lt;head&gt;
+              &lt;meta charset="UTF-8"&gt;
+              &lt;link rel="stylesheet" href="style.css"&gt;
+              &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+              &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+              &lt;link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet"&gt;
+              &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+              &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+              &lt;link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet"&gt;
+              &lt;title&gt;The Court of Henry VIII&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body style="text-align: center;"&gt;
+              &lt;h1&gt;Privy Council&lt;/h1&gt;
+              &lt;h2&gt;King Henry VIII - Daryl Lockwood&lt;/h2&gt;
+              &lt;img src="https://www.rct.uk/sites/default/files/255328-1540567932.jpg" alt="Henry VIII jpg" width="300px"&gt;&lt;br&gt;
+              &lt;button id="pair" onclick="pair()"&gt;Generate Council Members&lt;/button&gt;&lt;br&gt;
+              &lt;button id="reset" onclick="reset()"&gt;Reset&lt;/button&gt;&lt;br&gt;
+              &lt;button id="learnMore" onclick="toggleUL()"&gt;Learn More&lt;/button&gt;
+
+              &lt;ul id="council" style="list-style-type: none;"&gt;&lt;/ul&gt;
+                
+              &lt;ul id="links"&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_Wolsey" target="_blank"&gt;Cardinal Wolsey&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Charles_Brandon,_1st_Duke_of_Suffolk" target="_blank"&gt;Charles Brandon, Duke of Suffolk&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Anthony_Knyvett_(1507%E2%80%931554)" target="_blank"&gt;Sir Anthony Knyvett&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_More" target="_blank"&gt;Sir Thomas More&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/William_Compton_(courtier)" target="_blank"&gt;Sir William Compton&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_Boleyn,_1st_Earl_of_Wiltshire" target="_blank"&gt;Thomas Boleyn&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_Cranmer" target="_blank"&gt;Thomas Cranmer, Archbishop of Canterbury&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_Cromwell" target="_blank"&gt;Thomas Cromwell&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Thomas_Howard,_3rd_Duke_of_Norfolk" target="_blank"&gt;Thomas Howard, Duke of Norfolk&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/William_Butts" target="_blank"&gt;William Butts, Physician to the King&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Will_Sommers" target="_blank"&gt;Will Sommers, Court Jester&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;footer&gt;
+                &lt;p&gt;&lt;a href="https://github.com/egturner89" target="_blank"&gt;egturner89&lt;/a&gt;&lt;/p&gt;
+                &lt;p&gt;York, England | Apr 2023&lt;/p&gt;
+                &lt;p&gt;&lt;a href="/code.html" target="_blank"&gt;Click for Code&lt;/a&gt;&lt;/p&gt;
+              &lt;/footer&gt;
+
+              &lt;script&gt;
+                var councilMembers = ['Thomas Cromwell', 'Thomas Boleyn', 'William Butts, Physician to the King', 'Will Sommers, Court Jester', 'Thomas Cranmer, Archbishop of Canterbury', 'Sir William Compton', 'Sir Thomas More', 'Cardinal Wolsey', 'Charles Brandon, Duke of Suffolk', 'Thomas Howard, Duke of Norfolk', 'Sir Anthony Knyvett'];
+                var friends = ['Elliott Turner', 'Brendan Myers', 'Thomas Priestley', 'Rahul Patel', 'Wagner Loor', 'Trevor Warth', 'Stephan Andre', 'Paul Drake', 'Joe Schewtschuk', 'Stefan Pintea', 'Christopher Knudsen'];
+
+                function pair() {
+                  var pairings = document.getElementById('council');
+                  council.innerHTML = ''; // Clear any existing pairings
+
+                  while (councilMembers.length &gt; 0) {
+                    var memberIndex = Math.floor(Math.random() * councilMembers.length);
+                    var friendIndex = Math.floor(Math.random() * friends.length);
+                    var member = councilMembers[memberIndex];
+                    var friend = friends[friendIndex];
+                    councilMembers.splice(memberIndex, 1);
+                    friends.splice(friendIndex, 1);
+                    var li = document.createElement('li');
+                    li.textContent = member + ': ' + friend;
+                    council.appendChild(li);
+                  }
+                };
+
+                function reset() {
+                  councilMembers = ['Thomas Cromwell', 'Thomas Boleyn', 'William Butts, Physician to the King', 'Will Sommers, Court Jester', 'Thomas Cranmer, Archbishop of Canterbury', 'Sir William Compton', 'Sir Thomas More', 'Cardinal Wolsey', 'Charles Brandon, Duke of Suffolk', 'Thomas Howard, Duke of Norfolk', 'Sir Anthony Knyvett'];
+                  friends = ['Elliott Turner', 'Brendan Myers', 'Thomas Priestley', 'Rahul Patel', 'Wagner Loor', 'Trevor Warth', 'Stephan Andre', 'Paul Drake', 'Joe Schewtschuk', 'Stefan Pintea', 'Christopher Knudsen'];
+                  document.getElementById('council').innerHTML = '';
+                };
+
+                function toggleUL() {
+                  let ul = document.getElementById("links");
+                  if (ul.style.display === "none") {
+                    ul.style.display = "block";
+                    ul.style.textAlign = "center";
+                    ul.style.margin = "0";
+                  } else {
+                    ul.style.display = "none";
+                  }
+                };
+
+              &lt;/script&gt;
+            &lt;/body&gt;
+          &lt;/html&gt;
+
+          body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(https://previews.123rf.com/images/xenial/xenial2105/xenial210500190/168350048-tudor-rose-vector-seamless-pattern-traditional-heraldic-emblem-of-england-the-war-of-roses-of.jpg);
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.25;
+          }
+          h1 {
+            font-size: 3em;
+            font-family: 'UnifrakturMaguntia', cursive;
+            color: #3b3e41;
+          }
+          h2{
+            font-size: 1.8em;
+            font-family: 'IM Fell English SC', serif;
+            font-weight: bold;
+            color: #3b3e41;
+          }
+          img {
+            margin-bottom: 2em;
+          }
+          button {
+            display: inline-block;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            will-change: box-shadow, transform;
+            background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100%);
+            box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px rgb(58 65 111 / 50%);
+            padding: 0 32px;
+            border-radius: 6px;
+            color: #fff;
+            height: 48px;
+            font-size: 18px;
+            text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+            transition: box-shadow 0.15s ease, transform 0.15s ease;
+            margin-bottom: 1em;
+          }
+          #council {
+            background-color:rgb(0,0,0);
+            background-image:url(http://www.zingerbugimages.com/backgrounds/tan_parchment_paper_wallpaper_texture_seamless.jpg);
+            background-position:top left;
+            background-repeat:repeat;
+            background-attachment:fixed;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            grid-gap: 20px;
+            list-style: none;
+            padding: 10px;
+            margin-top: 1.5em;
+          }
+          #council li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #36454f;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-family: 'IM Fell English SC', serif;
+            font-weight: bold;
+            font-size: 150%;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            padding: 10px;
+          }
+          #links {
+            list-style: none;
+            display: none;
+            background-color:rgb(0,0,0);
+            background-image:url(http://www.zingerbugimages.com/backgrounds/tan_parchment_paper_wallpaper_texture_seamless.jpg);
+            background-position:top left;
+            background-repeat:repeat;
+            background-attachment:fixed;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+          #links li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          #links li a {
+            color: blue;
+            text-decoration: none;
+            list-style: none;
+            font-size: 1.2em;
+            font-family: 'IM Fell English SC', serif;
+            color: #36454f;
+            
+          }
+          #links li a:hover {
+            text-decoration: underline;
+          }
+          #links li a:active {
+            font-size: 150%;
+          }
+          #learnMore {
+            margin-bottom: 1.5em;
+          }
+          footer {
+            background-color: #3b3e41;
+            margin: 0;
+          }
+          footer p, footer p a {
+            color: #fff;
+            font-size: 12px;
+          }
+          footer p a {
+            text-decoration: none;
+            cursor: pointer;
+          }
+
+
+      </code>
+    </pre>
+  </body>
+</html>
